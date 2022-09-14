@@ -1,0 +1,38 @@
+Application Layers
+1. Front-End - UI (Interactive) - Test Tools : Any Browser, Test Automation : Selenium-Java, Appium-Java
+2. Middleware/ Middle Layer / APIs (Non-interactive) - Test Tools : Postman / SoapUI, Test Automation : Rest-Assured, Karate
+3. Business Logic / Logical / Core / Rating Engine. IDE - Eclipse, Intelij, VS Code
+4. DB - Test Tools : SQL Developer/ PostgreSQL - Test Automation : JDBC (Oracle - OJDBC, MySQL - mysqlconnectorJ, PostgreSQL - PostgreSQL JDBC)
+
+Two types of API: SOAP and RESTful
+
+SOAP protocol API is not SOAPUI (Tool to test apis - REST/SOAP)
+
+Difference between SOAP vs RESTful
+
+SOAP			|		RESTful
+-----------------------------------------------
+Envalop			|		header
+Body - XML		|		Body - json, xml
+
+APIs will have
+Identities:
+endpoints = url + resources
+
+Duties:
+1. Taking Request using https Methods call type = GET, POST, PUT, DELETE - CURD (Create/Insert, Update, Read/Select, Delete) from DB
+2. Bringing Response
+
+Fields:
+
+Request 		|		Response
+--------------------------------------------------------------
+header			|		header
+body(POST, PUT)		|		body(All Http Methods)
+param(parameters)	|		-
+Authorization(token,u/p)|		-
+-			|		Status Code (200, 300, 400, 500)
+
+
+
+
