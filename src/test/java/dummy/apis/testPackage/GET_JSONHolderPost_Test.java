@@ -37,7 +37,7 @@ public class GET_JSONHolderPost_Test {
 		.then().log().all();
 	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void assertion() {
 		RestAssured
 		.when()
