@@ -4,7 +4,8 @@ A - GET, POST, PUT, DELETE, PATCH
 A - 200 (201, 204, Success), 300 (redirection), 400 (404 - Not Found, 401/403 - Unauthorized, Client Side error), 500 (504, 506, Server Side error)
 3. Unchecked Exception and Checked exception?
 A - During complie time when exception force an error, it is checked exception e.g.FileInputStream. vice versa unchecked eception e.g. NullPointerException
-
+4. How do you validate json?
+A - using jsonpath to value to validate response json
 
 -- Techniques we learned
 1. Making a post/get calls
