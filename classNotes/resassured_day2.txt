@@ -1,0 +1,21 @@
+1. What are the http methods/calls has been used in APIs?
+A - GET, POST, PUT, DELETE, PATCH
+2. What status code?
+A - 200 (201, 204, Success), 300 (redirection), 400 (404 - Not Found, 401/403 - Unauthorized, Client Side error), 500 (504, 506, Server Side error)
+3. Unchecked Exception and Checked exception?
+A - During complie time when exception force an error, it is checked exception e.g.FileInputStream. vice versa unchecked eception e.g. NullPointerException
+
+
+-- Techniques we learned
+1. Making a post/get calls
+2. Making calls using json file, json string, inputstream for post call
+3. adding headers
+4. adding params
+5. adding auth
+6. setting base uri
+7. negative testing
+8. failed testing
+9. response code validation
+10. response body entity validation
+11. response body list validation
+12. response json validation

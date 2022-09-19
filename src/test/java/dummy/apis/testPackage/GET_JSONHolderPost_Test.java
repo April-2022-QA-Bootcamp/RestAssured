@@ -2,9 +2,15 @@ package dummy.apis.testPackage;
 
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.*;
+
+import java.util.List;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.http.Headers;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 
 public class GET_JSONHolderPost_Test {
 
@@ -37,7 +43,7 @@ public class GET_JSONHolderPost_Test {
 		.then().log().all();
 	}
 	
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void assertion() {
 		RestAssured
 		.when()
@@ -83,12 +89,60 @@ public class GET_JSONHolderPost_Test {
 		System.out.println(header);
 	}
 	
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void assertAHeader() {
 		RestAssured
 		.when()
 		.get("https://jsonplaceholder.typicode.com/posts")
 		.then()
 		.header("Content-Encoding", equalTo("gzip"));
+	}
+	
+	@Test(enabled = false)
+	public void assertQuilting() {
+		Response response = 
+		RestAssured
+		.when()
+		.get("https://www.googleapis.com/books/v1/volumes?q=quilting")
+		.then()
+		.extract().response();
+		
+		JsonPath path = new JsonPath(response.asInputStream());
+		List<String> list = path.get("items.volumeInfo.title");
+		assertThat(list, hasItem(containsStringIgnoringCase("quilting")));
+	}
+	
+	@Test(enabled = false)
+	public void assertShortQuilting() {
+		RestAssured
+		.when()
+		.get("https://www.googleapis.com/books/v1/volumes?q=quilting")
+		.then()
+		.log().all()
+		.body("items.volumeInfo.title", hasItem(containsStringIgnoringCase("quilting")));
+	}
+	
+	@Test
+	public void jsonPathList() {
+		List<String> list = 
+		RestAssured
+		.when()
+		.get("https://www.googleapis.com/books/v1/volumes?q=quilting")
+		.then()
+		.extract()
+		.path("items.volumeInfo.title");
+		System.out.println(list);
+	}
+	
+	@Test
+	public void jsonPathSingleEntity() {
+		String entity = 
+		RestAssured
+		.when()
+		.get("https://www.googleapis.com/books/v1/volumes?q=quilting")
+		.then()
+		.extract()
+		.path("items[2].volumeInfo.title");
+		System.out.println(entity);
 	}
 }
